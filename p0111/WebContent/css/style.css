@@ -1,0 +1,4 @@
+@charset "UTF-8";
+table,th,td{border: 1px solid black; border-collapse: collapse;}
+th{	width:100px; color:#eee; background:#666; }
+input{ width:120px;}

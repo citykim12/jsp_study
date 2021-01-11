@@ -1,10 +1,142 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<style>
+		  /* 내부스타일 시트 */
+		</style>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+   		<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	</head>
+	<body>
+		<form action="" name="signup" method="post">
+			<table>
+				<tr>
+					<th>이름</th>
+					<td><input type="text" id="name" name="name" required></td>
+				</tr>
+				<tr>
+					<th>아이디</th>
+					<td><input type="text" id="user_id" name="user_id" placeholder="영문&숫자조합" required><button>아이디 중복확인</button></td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="text" id="password" name="password" required></td>
+				</tr>
+				<tr>
+					<th>비밀번호확인</th>
+					<td><input type="text" id="password2" name="password2" required></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td>
+					<input type="text" id="email" name="email">
+					@
+					<input type="text" id="email2" name="email2">
+					<select>
+						<option>daum.net</option>
+						<option>naver.com</option>
+						<option>gmail.com</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<th>연락처</th>
+					<td>
+					<select id="tel1" name="tel1">
+					<option selected>010</option>
+					<option>011</option>
+					<option>016</option>
+					<option>017</option>
+					<option>019</option>
+					</select>-
+					<input type="text" id="tel2" name="tel2" size="4">-
+					<input type="text" id="tel3" name="tel3" size="4">
+					</td>
+				</tr>
+				<tr>
+					<th>우편번호</th>
+					<td>
+					<input type="text" id="zipcode" name="zipcode" size="10"
+					placeholder="우편번호" required> 
+					<input type="button"
+					onclick="openZipSearch()" size="7" value="우편번호검색">
+					</td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td>
+					<input type="text" id="add1" name="add1" size="50"
+					placeholder="상세주소 동/읍/면 단위까지 입력하세요" required><br> 
+					<input type="text" id="add2" name="add2" size="50" 
+					placeholder="건물번호와 호수까지 입력하세요" required><br>
+					<input type="text" id="engadd" name="engadd" size="50" 
+					placeholder="영문주소가 들어갑니다." required><br>
+					
+					</td>
+				</tr>
+				<tr>
+					<th>성별</th>
+					<td>
+					<input type="radio" id="gender1" name="gender" value="man">
+					<label for="gender1">남자</label>
+					<input type="radio" id="gender2" name="gender" value="woman">
+					<label for="gender2">여자</label>
+					</td>
+				</tr>
+				<tr>
+					<th>분야</th>
+					<td>
+						<input type="checkbox" name="section" id="movie" value="영화" ><label for="movie">영화</label>
+						<input type="checkbox" name="section" id="broadcast" value="방송" ><label for="broadcast">방송</label>
+						<input type="checkbox" name="section" id="publish" value="출판" ><label for="publish">출판</label>
+						<input type="checkbox" name="section" id="performance" value="공연예술" ><label for="performance">공연&예술</label>
+						<input type="checkbox" name="section" id="etc" value="기타" ><label for="etc">기타</label>
+					</td>
+				</tr>
+				<tr>
+					<th>주요경력</th>
+					<td>
+					<!--날짜랑 옆에 텍스트박스-->
+					<input type="date" name="date1" > : <input type="text" value="경력내용" placeholder="경력내용을 입력하세요."><br>
+					<input type="date" name="date2"> : <input type="text" value="경력내용" placeholder="경력내용을 입력하세요."><br>
+					<input type="date" name="date3"> : <input type="text" value="경력내용" placeholder="경력내용을 입력하세요."><br>
+					</td>
+				</tr>
+				<tr>
+					<th>기타메모</th>
+					<td>
+						<textarea placeholder="간단하게 글을 적어주세요." name="memo" rows="20" cols="90">
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="submit" value="전송">
+					<input type="reset" value="취소">
+					</td>
+				</tr>
+			</table>
+		</form>
+			<script>
+			  function openZipSearch(){
+			    new daum.Postcode({
+			        oncomplete: function(data) {
+			            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+			            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+			            $('[name=zipcode]').val(data.zonecode);
+			            $('#add1').val(data.address);
+			            $('#engadd').val(data.addressEnglish);
+			            
+			            
+			            /*  document.getElementById('zipcode').value = data.zonecode;
+			            document.getElementById('add1').value = data.address;
+			            document.getElementById('engadd').value = data.addressEnglish; */
+			        }
+			    }).open();
+			  }
+			</script>
+	</body>
 </html>
