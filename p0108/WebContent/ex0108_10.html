@@ -55,8 +55,14 @@
 		    </td>
 		  </tr>
 		  <tr>
+		    <th>기타정보</th>
+		    <td><input type="text" id="sido" name="sido" required>
+		    <input type="text" id="sidoEnglish" name="sidoEnglish" required>
+		    </td>
+		  </tr>
+		  <tr>
 		    <th>우편번호</th>
-		    <td><input type="text" name="zip" required>
+		    <td><input type="text" id="zip" name="zip" required>
 		        <!-- 자바스크립트 호출하는 명령어입니다. add(); -->
 		        <input type="button" onclick="openZipSearch()" value="주소검색">
 		    </td>
@@ -93,6 +99,8 @@
 						$('[name=zip]').val(data.zonecode); // 우편번호 (5자리)
 						$('[name=addr1]').val(data.address);
 						$('[name=addr2]').val(data.buildingName);
+						$('[name=sido]').val(data.sido);
+						$('#sidoEnglish').val(data.sidoEnglish);
 					}
 				}).open();
 			}
@@ -100,3 +108,11 @@
 	
 	</body>
 </html>
+
+
+
+
+
+
+
+
