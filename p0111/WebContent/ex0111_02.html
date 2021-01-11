@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	  <form action="resultj.jsp" method="get" name="form1">
+	    <label for="stu_id">학번</label>
+	    <input type="text" name="stu_id" id="stu_id" placeholder="s로 시작되는 번호입니다."><br>
+	    <label for="stu_name">이름</label>
+	    <input type="text" name="stu_name" id="stu_name" ><br>
+	    <label for="pw">패스워드</label>
+	    <input type="password" name="pw" id="pw"><br>
+	    <label>성별</label>
+	    <input type="radio" name="gender" id="gender1" value="man">
+	    <label for="gender1">남자</label>
+	    <input type="radio" name="gender" id="gender2" value="woman">
+	    <label for="gender2">여자</label><br>
+	    <label>취미</label>
+	    <input type="checkbox" name="hobby" id="swim" value="swim"><label for="swim">수영</label>
+	    <input type="checkbox" name="hobby" id="game" value="game"><label for="game">게임</label>
+	    <input type="checkbox" name="hobby" id="running" value="running"><label for="running">달리기</label>
+	    <input type="checkbox" name="hobby" id="book" value="book"><label for="book">책읽기</label>
+	    <input type="checkbox" name="hobby" id="bicycle" value="bicycle"><label for="bicycle">자전거</label><br>
+	    
+	    <label>캠퍼스 지역</label>
+	    <select name="campus">
+	      <optgroup label="중북부 지역">
+		      <option value="seoul">서울지역 캠퍼스</option>
+		      <option value="incheon">인천지역 캠퍼스</option>
+		      <option value="daejeon" selected>대전지역 캠퍼스</option>
+	      </optgroup>
+	      <optgroup label="중남부 지역">
+		      <option value="daegu">대구지역 캠퍼스</option>
+		      <option value="pusan">부산지역 캠퍼스</option>
+		      <option value="gwangju">광주지역 캠퍼스</option>
+	      </optgroup>
+	    </select><br>
+	    <textarea name="memo" rows="20" cols="100">
+	    </textarea><br>
+	    
+	    
+	    
+	    <input type="submit" value="확인">
+	    <input type="reset" value="취소">
+	  
+	  
+	  </form>
+	
+	</body>
+</html>
