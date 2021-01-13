@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>로그인|삼정전자</title>
+		<style type="text/css">
+		  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+		  
+		  * { margin:0; padding:0; font-family: 'Noto Sans KR', sans-serif; }
+		  body{ background: #f2f2f2; }
+		  header{ width:100%; height: 80px; 
+		    background: #fff; height:80px; border-bottom:1px solid #d5d5d5; 
+		    box-sizing: border-box;
+		    padding-top: 28px; padding-left: 28px;
+		    box-shadow: 1px 1px 0.5px 1px #eee;
+		  }
+		  nav img{ width:219px;  }
+		  section{ width:494px; height:544px; margin:0 auto; 
+		  margin-top:48px;
+		  background: #fcfcfc; border-radius: 26px;
+		  border:1px solid #d9d9d9; padding: 60px 72px 48px 72px; }
+		  .login_title{ font-size:39px; line-height: 1.23;
+		  color:#0072de; font-weight: 500; text-align: center;
+		  margin-bottom:35px;
+		   }
+		  fieldset { border:0; color:#252525;
+		     box-sizing: border-box; padding:30px; }
+		  label{ font-size:10px; color:#909090;  }   
+		  input{ width:452px; height:36px; margin-bottom: 10px;
+		         border:0;
+		         border-bottom:1px solid #8c8c8c;
+		   }
+		   .label_checkbox{color:#252525; font-size:16px; font-weight:500;
+		   line-height: 1.5;   }
+		   .input_ch_txt{ width:18px; height: 18px; border:1px solid #8f8f8f; }
+		   button { width:280px; height:44px; background: #eee; color:#252525; 
+		            border:none; margin-top: 28px; margin-left:70px;
+		            border-radius: 18px; font-size:17px;
+		    }
+		   .div_txt {text-decoration: underline; margin-bottom:7px;
+		             margin-left:70px;
+		    } 
+		   .div_google{ margin-left:100px; color:#fff;
+		      background: url('images/google.png') no-repeat left 5px top 7px #0072de;
+		      background-size: 30px 30px; }
+		</style>
+	</head>
+	<body>
+	  <header>
+	    <nav>
+	       <img alt="삼성전자로고" src="images/txt_logo.svg">
+	    </nav>
+	  </header>
+	  <section>
+	     <article>
+	        <div>
+	           <h1 class="login_title">삼성계정으로 로그인</h1>
+	        </div>
+	        <div>
+	           <form action="" method="post" name="form">
+	             <fieldset>
+		             <label>이메일 주소 또는 전화번호</label><br>
+		             <input type="text" id="id" name="id"><br>
+		             <label>비밀번호</label><br>
+		             <input type="password" id="pw" name="pw"><br>
+		             <input class="input_ch_txt" type="checkbox" name="saveid" > 
+		             <label class="label_checkbox">ID 기억하기</label><br>
+     	             <button onclick="">로그인</button>
+	             </fieldset>
+	           </form>
+	        </div>
+	        <div class="div_txt">ID 찾기 또는 비밀번호 변경</div>
+	        <div class="div_txt">계정생성</div>
+	        <button class="div_google">
+	        
+	        Google 계정으로 사용</button>
+	     </article>
+	  </section>
+	
+	</body>
+</html>
