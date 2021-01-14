@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		  input[type="checkbox"]+label{
+		  display: inline-block; width:20px; height: 20px;
+		    cursor: pointer;
+		     background: url('images/check_over.png') no-repeat 1px top;
+		  }
+		  input[type="checkbox"]:checked+label{
+		    background: url('images/check_on.png') no-repeat 1px top; 
+		    
+		  }
+		  input[type="checkbox"]:checked+label+label{
+		    color:#9a7d79; 
+		  }
+		  input[type="checkbox"] { display: none; }
+
+		</style>
+	</head>
+	<body>
+	  <form action="" method="get" name="form">
+	    <label>아이디 </label><input type="text" name="id" id="id"><br>
+	    <label>비밀번호 </label><input type="password" name="pw" id="pw"><br>
+	    <input type="checkbox" name="hobby" id="hobby1" value="run"><label for="hobby1"></label><label for="hobby1">달리기</label>
+	    <input type="checkbox" name="hobby" id="hobby2" value="swim"><label for="hobby2"></label><span>수영</span>
+	    <input type="checkbox" name="hobby" id="hobby3" value="game"><label for="hobby3"></label><span>게임</span>
+	    <input type="checkbox" name="hobby" id="hobby4" value="book">
+	    <label for="hobby4"></label><span>독서</span><br>
+	    
+	  
+	  </form>
+	
+	</body>
+</html>

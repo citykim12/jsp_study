@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		  .backcolor{ width:100px; height: 100px; background: blue;
+		    animation:backcolor 1s alternate infinite ease-in;
+		  }
+		  .divscale{ width:250px; height:305px; overflow: hidden;}
+		  .scale{ width:250px; height:305px;  
+		  transform:scale(1.0);
+		  transition:all 1s ease-in;  }
+		  .scale:hover{ 
+		      transform:scale(1.2);
+		      /* animation:imgscale 1s alternate infinite ease-in; */
+		   }
+		  @keyframes backcolor{
+		    from{ background:blue;    
+		    }
+		    50%{ opacity:0; }
+		    to{
+		        border-radius:50%;
+		        transform:translateX(400px);
+		    
+		    }
+		  }
+		  @keyframes imgscale{
+		    from{
+		        transform:scale(1.0);
+		    }to{
+		        transform:scale(1.2);
+		    }
+		  }  
+		  
+		</style>
+	</head>
+	<body>
+	 <div class="divscale"><img class="scale" alt="" src="images/jenny.jpg"></div>
+	 <div class="backcolor"></div>
+	
+	</body>
+</html>

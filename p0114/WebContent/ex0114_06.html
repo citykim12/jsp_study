@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="js/prefixfree.min.js"></script>
+		<style type="text/css">
+		div{ margin:50px; 
+		/* width:250px; height:305px; overflow: hidden; */ }
+
+        .skewx:hover{ transform:skewX(-40deg);
+                      transform-origin:left bottom; }
+        .origin{ perspective:500px; }
+        .rotate3dy:hover{ transform:rotateY(40deg); }
+        .rotate3dx:hover{ transform:rotateX(40deg); }
+        .rotate:hover{ transform:rotate(40deg); 
+           transform-origin:right bottom; }
+		.scale:hover{ transform:scale(1.2); }
+		.transition1 { width:250px; height: 305px;
+		   transition-property:all;
+		   transition-duration:1s;
+		 }
+		.transition1:hover { width:400px; height: 455px; }
+		.movex:hover { transform: translateX(50px); }
+		.movey:hover { transform: translateY(30px); }
+		.movexy:hover { transform: translate(50px, 30px); }
+		</style>
+	</head>
+	<body>
+	 <div><img class="skewx" alt="" src="images/jenny.jpg"></div>
+	 <div class="origin"><img class="rotate3dy" alt="" src="images/jenny.jpg"></div>
+	 <div class="origin"><img class="rotate3dx" alt="" src="images/jenny.jpg"></div>
+	 <div><img class="rotate" alt="" src="images/jenny.jpg"></div>
+	 <div><img class="transition1" alt="" src="images/jenny.jpg"></div>
+	 <div class="movex"><img alt="" src="images/jenny.jpg"></div>
+	 <div class="movey"><img alt="" src="images/jenny.jpg"></div>
+	 <div class="movexy"><img alt="" src="images/jenny.jpg"></div>
+	
+	 
+	
+	</body>
+</html>
