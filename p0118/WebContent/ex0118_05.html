@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		  function screenSize(){
+			  var width_size = screen.width;
+			  var height_size = screen.height;
+			  
+			  alert("화면 길이 : "+ width_size);
+			  alert("화면 높이 : "+ height_size);
+		  }
+		
+		  function popup_open(){
+			  var l_height = screen.height/2 - 200;
+			  window.open("popup1.html","팝업타이틀창",
+					  "width=300,height=400,left="+screen.width/2 - 150+",top="+l_height+",location=no" ); 
+		  }
+		</script>
+	</head>
+	<body>
+	   <button onclick="popup_open()">팝업 창 띄우기</button><br>
+	   <button onclick="screenSize()">화면크기 알아보기</button>
+	
+	</body>
+</html>
