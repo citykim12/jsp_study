@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>폼태그 만들기</title>
+		<!-- jquery 최신버전을 사용 -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/main04.js"></script>
+		<style type="text/css">
+		   span{color:red;}
+		</style>
+	</head>
+	<body>
+	  <form action="result.jsp" method="get" name="memberForm">
+	   <label for="id">ID : </label>
+	   <input type="text" id="id" name="id" ><span id="idspan"></span><br>
+	   <label for="pw">패스워드 : </label>
+	   <input type="password" id="pw" name="pw" autofocus><br>
+	   <label for="pw2">패스워드 확인 : </label>
+	   <input type="password" id="pw2" name="pw2"><br>
+	   <label for="name">이름 : </label>
+	   <input type="text" id="name" name="name"><br>
+	   <label for="tel">전화번호 : </label>
+	   <input type="text" id="tel" name="tel"><br>
+	   <label>성별 : </label><span id="chk_gender"></span><br>
+	   <input type="radio" id="male" name="gender" value="male" ><label for="male">남</label>
+	   <input type="radio" id="female" name="gender" value="female"><label for="female">여</label><br>
+	   <label>결혼여부 : </label><span id="chk_marry"></span><br>
+	   <input type="radio" id="yes" name="marry" value="yes" ><label for="yes">기혼</label>
+	   <input type="radio" id="no" name="marry" value="no"><label for="no">미혼</label><br>
+	   <label>취미</label><span id="chk_hobby"></span><br>
+	   <input type="checkbox" id="swim" name="hobby" value="swim"><label for="swim">수영</label>
+	   <input type="checkbox" id="game" name="hobby" value="game"><label for="game">게임</label>
+	   <input type="checkbox" id="book" name="hobby" value="book"><label for="book">독서</label>
+	   <input type="checkbox" id="run" name="hobby" value="run"><label for="run">조깅</label><br>
+	   <input type="button" onclick="formCheck()" value="확인">
+	   <input type="reset" value="취소"><br>
+	 
+	 </form>
+	
+	</body>
+</html>
