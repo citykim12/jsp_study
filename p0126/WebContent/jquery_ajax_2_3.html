@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://apis.data.go.kr/1360000/TourStnInfoService/getTourStnVilageFcst?serviceKey=918RE13GA7OY7ZEmUzApgbOeAcQoZ%2FaHsXWcqPAKQ9YNNPj83KOstRMRIUrCFIAcm9qj2R6b7NFZjp%2FYsYzJLg%3D%3D&pageNo=1&numOfRows=10&dataType=JSON&CURRENT_DATE=2019122010&HOUR=24&COURSE_ID=1" crossorigin="anonymous">
+
+
+$(function() {
+	$.ajax({
+		//url:"js/MOCK_DATA2.json",
+		url:"http://apis.data.go.kr/1360000/TourStnInfoService/getTourStnVilageFcst?serviceKey=918RE13GA7OY7ZEmUzApgbOeAcQoZ%2FaHsXWcqPAKQ9YNNPj83KOstRMRIUrCFIAcm9qj2R6b7NFZjp%2FYsYzJLg%3D%3D&pageNo=1&numOfRows=10&dataType=JSON&CURRENT_DATE=2019122010&HOUR=24&COURSE_ID=1",
+		dataType:"json",
+		success:function(data) {
+			var data2 = data['response'];
+			var data3 = data2['body'];
+			var data4 = data3['items'];
+			var data5 = data4['item'];
+			var html="";
+			console.log("success1");
+			console.log(data5);
+			console.log("data5.length :"+data5.length);
+			if(data5.length > 0) {
+				for(var i in data5) {
+			        console.log("success2");
+					var $id = data5[i].spotAreaId;
+					var $first_name = data5[i].spotAreaName;
+					var $last_name = data5[i].spotName;
+					var $email = data5[i].thema;
+					var $gender = data5[i].tm;
+
+					html += '<tr>';
+					html += '<td>'+$id+'</td>';
+					html += '<td>'+$first_name+'</td>';
+					html += '<td>'+$last_name+'</td>';
+					html += '<td>'+$email+'</td>';
+					html += '<td>'+$gender+'</td>';
+					html += '</tr>';	
+					}
+										
+					//$("#dynamicTbody").empty();
+					$("#dynamicTbody").append(html);
+				}
+		  }
+		
+		});
+});
+</script>
+</head>
+	<body>
+		<table style="border: 1px;" id="dynamicTable">
+			<thead>
+				<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>성</th>
+				<th>이메일</th>
+				<th>성별</th>
+				</tr>
+			</thead>
+			<tbody id="dynamicTbody">
+				
+			</tbody>
+		</table>
+	  
+	</body>
+</html>

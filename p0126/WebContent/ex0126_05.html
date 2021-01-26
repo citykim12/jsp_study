@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+		$(function(){
+			$.ajax({
+				url:"js/dataset.xml",
+				dataType:"xml",
+				success:function(data) {
+					alert("성공");
+					var sourceCode="";
+					$(data).find("record").each(function() {
+						var id = $(this).find("id").text();
+						var first_name = $(this).find("first_name").text();
+						var last_name = $(this).find("last_name").text();
+						var email = $(this).find("email").text();
+						var gender = $(this).find("gender").text();
+								
+						sourceCode += "<tr>";
+						sourceCode += "<td>"+id+"</td>";
+						sourceCode += "<td>"+first_name+"</td>";
+						sourceCode += "<td>"+last_name+"</td>";
+						sourceCode += "<td>"+email+"</td>";
+						sourceCode += "<td>"+gender+"</td>";
+						sourceCode += "</tr>";
+					});
+					$("#tbody01").append(sourceCode);
+				}
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<table id="table01">
+	    <thead>
+	       <tr>
+	          <th>번호</th>
+	          <th>이름</th>
+	          <th>성</th>
+	          <th>이메일</th>
+	          <th>성별</th>
+	       </tr>
+	    </thead>
+	    <tbody id="tbody01">
+	       
+	    </tbody>
+	  </table>
+	  <button id="btn01">추가</button>
+</body>
+</html>

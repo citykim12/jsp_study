@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ajax</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+		 // html -> 기존것을 지우고 추가, append -> 기존것에 추가 하는것
+		 $(function(){
+			 
+			
+			 
+  			 $("#btn01").click(function(){
+  				 $.ajax({
+  					url:"js/MOCK_DATA.json",
+  					dataType:"json",
+  					success:function(data){
+  						alert("성공적으로 데이터를 불러왔습니다.");
+  						var sourceCode="";
+  						if(data.length>0){
+  							for(var i=0;i<data.length;i++){
+  								var id = data[i].id;
+  								var first_name = data[i].first_name;
+  								var last_name = data[i].last_name;
+  								var email = data[i].email;
+  								var gender = data[i].gender;
+  								
+  								sourceCode += "<tr>";
+  								sourceCode += "<td>"+id+"</td>";
+  								sourceCode += "<td>"+first_name+"</td>";
+  								sourceCode += "<td>"+last_name+"</td>";
+  								sourceCode += "<td>"+email+"</td>";
+  								sourceCode += "<td>"+gender+"</td>";
+  								sourceCode += "</tr>";
+  							}
+  							$("#tbody01").append(sourceCode);
+  						}
+  					},
+  					error:function(){
+  						alert("데이터 불러오기 실패!!");
+  					}
+  				 });
+  				 
+  				 
+  				 
+			
+			});
+		 });
+		
+		</script>
+		<style>
+		  table,th,td{border:1px solid black; 
+		  border-collapse: collapse;}
+		</style>
+	</head>
+	<body>
+	  <table id="table01">
+	    <thead>
+	       <tr>
+	          <th>번호</th>
+	          <th>이름</th>
+	          <th>성</th>
+	          <th>이메일</th>
+	          <th>성별</th>
+	       </tr>
+	    </thead>
+	    <tbody id="tbody01">
+	       
+	    </tbody>
+	  </table>
+	  <button id="btn01">추가</button>
+	</body>
+</html>

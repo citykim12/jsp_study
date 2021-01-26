@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>공공데이터 사용</title>
+		<style>
+		  table,th,td{ border:1px solid black; border-collapse: collapse;}
+		</style>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+		  $(function(){
+			  //btn버튼 클릭시
+			  $("#btn01").click(function(){
+				 //Ajax넣기
+				  $.ajax({
+					  url:"js/tour.json",
+					  dataType:"json",
+					  success:function(data){
+						 alert("데이터 불러오기 성공!!");
+						 var data2 = data["response"];
+						 var data3 = data2["body"];
+						 var data4 = data3["items"];
+						 var data5 = data4["item"];
+						 
+						 var sourceCode="";
+						 
+						 if(data5.length>0){
+							 for(var i in data5){
+								 var courseAreaName = data5[i].courseAreaName;
+								 var courseName = data5[i].courseName;
+								 var spotName = data5[i].spotName;
+								 var thema = data5[i].thema;
+								 var tm = data5[i].tm;
+								 
+								 sourceCode += '<tr>';
+								 sourceCode += '<td>'+ courseAreaName +'</td>';
+								 sourceCode += '<td>'+ courseName +'</td>';
+								 sourceCode += '<td>'+ spotName +'</td>';
+								 sourceCode += '<td>'+ thema +'</td>';
+								 sourceCode += '<td>'+ tm +'</td>';
+								 sourceCode += '</tr>';
+							 };
+							 $("#tb01").append(sourceCode);
+						 }
+					  },
+					  error:function(){
+						  alert("데이터 불러오기 실패ㅜㅜ");
+					  }
+				  }); //Ajax
+			  }); //btn
+		  }); //jQuery
+		</script>
+		
+	</head>
+	<body>
+	  <table id="table01">
+	     <thead>
+	        <tr>
+	           <th>courseAreaName</th>  
+	           <th>courseName</th>  
+	           <th>spotName</th>  
+	           <th>thema</th>  
+	           <th>tm</th>  
+	        </tr>
+	     </thead>
+	     <tbody id="tb01">
+	        
+	     </tbody>
+	  </table>
+	  <button id="btn01">데이터 추가</button>
+	</body>
+</html>

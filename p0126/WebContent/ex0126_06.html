@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<style>
+		  table,th,td{ border:1px solid black; border-collapse: collapse;}
+		</style>
+		<script type="text/javascript">
+		  $(function(){
+			 $.ajax({
+				url:"js/dataset.xml",
+				dataType:"xml",
+				success:function(data){
+					alert("데이터 불러오기 성공");
+					var sourceCode="";
+					$(data).find("record").each(function(){
+						var id = $(this).find("id").text();
+						var first_name = $(this).find("first_name").text();
+						var last_name = $(this).find("last_name").text();
+						var email = $(this).find("email").text();
+						var gender = $(this).find("gender").text();
+						
+						 sourceCode += '<tr>';
+						 sourceCode += '<td>'+ id +'</td>';
+						 sourceCode += '<td>'+ first_name +'</td>';
+						 sourceCode += '<td>'+ last_name +'</td>';
+						 sourceCode += '<td>'+ email +'</td>';
+						 sourceCode += '<td>'+ gender +'</td>';
+						 sourceCode += '</tr>';
+					});
+					$("#tb01").append(sourceCode);
+					
+				},
+				error:function(){
+					alert("데이터 불러오기 실패");
+				}
+			 });//ajax
+		  });//jQuery
+		  
+		</script>
+		<title>XML</title>
+	</head>
+	<body>
+		<table id="table01">
+		     <thead>
+		        <tr>
+		           <th>번호</th>  
+		           <th>이름</th>  
+		           <th>성</th>  
+		           <th>이메일</th>  
+		           <th>성별</th>  
+		        </tr>
+		     </thead>
+		     <tbody id="tb01">
+		        
+		     </tbody>
+		  </table>
+		  <button id="btn01">데이터 추가</button>
+	</body>
+</html>
