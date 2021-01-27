@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>부모창</title>
+		 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		 <script type="text/javascript">
+		   function address_chk(){
+			   window.open("popup2.html?address01="+$("#address01").val(),
+			   "팝업창","width=600,height=400,resizable=no,scrollbars=no");
+		   }
+		 
+		 </script>
+	</head>
+	<body>
+		<form action="">
+		<label>우편번호</label>
+		<input type="text" id="address01" name="address01">
+		<button type="button" id="btn01" onclick="address_chk()">우편번호전달</button><br>
+		<label>기본주소</label>
+		<input type="text" id="address02" name="address02">
+		<!-- 우편번호 08327 를 넣어서 팝업창으로 값전달 -->
+		<!-- 팝업창 : 서울특별시 구로구 가마산로 87 (구로동, 한일유앤아이아파트)
+		기본주소를 부모창에 값전달 -->
+		</form>
+	</body>
+</html>

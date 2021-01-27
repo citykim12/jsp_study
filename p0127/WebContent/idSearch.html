@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+		  var openPop;
+		  function open_idCheck(){
+			  openPop = window.open("idPopup.html",
+					  "팝업창","width=600, height=400,resizable=no,scrollbar=no");
+		  }
+		  function popup_data(){
+			  alert($("#id").val());
+			  openPop.document.getElementById("pid").value = $("#id").val();
+		  }
+		  
+		</script>
+		
+		
+	</head>
+	<body>
+		<form action="" method="get" name="memberForm">
+		  <label for="id">아이디</label>
+		  <input type="text" id="id" name="id">
+		  <input type="button" onclick="open_idCheck()" value="팝업창">
+		  <input type="button" onclick="popup_data()" value="값넘기기"><br>
+		  	 
+		  <label for="id2">체크확인</label>
+		  <input type="text" id="id2" name="id2"><br>
+		 
+		</form>
+	
+	</body>
+</html>

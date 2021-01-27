@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>자식창</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+		    
+				function getParameter(name) {
+				    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+				    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				        results = regex.exec(location.search);
+				    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+				}
+		    $(function(){
+			    // 파라미터 값 가져오기 정규식
+			        alert("jQuery성공--1 희제");
+			        alert(getParameter("address01"));  //값전달
+			    	document.getElementById("address01").value = getParameter("address01");
+		    });
+		    
+		    function main_data(){
+		    	alert("메인 알럿창 성공--2 동수,규철,성연,민철");
+		    	opener.document.getElementById("address02").value = $("#address02").val();
+		    	window.close();
+		    }
+		
+		
+		</script>
+	</head>
+	<body>
+		<label>우편번호</label>
+		<input type="text" id="address01" name="address01">
+		<script type="text/javascript">alert("스크립트 성공--3 영주,윤선,동규")</script>
+		<label>기본주소</label>
+	    <input type="text" id="address02" name="address02">
+	    <button type="button" onclick="main_data()">메인으로 값전달</button>
+	
+	</body>
+</html>

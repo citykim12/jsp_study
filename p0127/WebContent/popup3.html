@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>아이디 중복체크</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+		 function dbChk(){
+			 alert("데이터베이스에서 값체크 프로그램 삽입");
+			 //db연결 프로그램 추가
+		 }
+		 
+		 function member_data(){
+			 alert("데이터 전달 성공");
+			 alert($("#id").val());
+			 opener.document.getElementById("id").value = $("#id").val();
+			 window.close();
+		 }
+		
+		</script>
+	</head>
+	<body>
+	  <form action="">
+        <label>아이디</label>
+        <input type="text" id="id" name="id">
+        <button type="button" id="btn01" onclick="dbChk()">DB아이디확인</button><br>
+        <button type="button" id="btn02" onclick="member_data()">아이디저장</button>
+        	  
+	  
+	  </form>
+	</body>
+</html>

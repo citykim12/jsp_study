@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+	  function getParameterByName(name) {
+	      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	              results = regex.exec(location.search);
+	      return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	  }
+
+      
+	  function id_check_db(){
+		  alert("아이디 사용가능!!");
+	  }
+	  function main_input(){
+		   opener.document.getElementById("id_ok").value=document.getElementById("pop_id").value;
+		   opener.document.getElementById("id_ok2").value=document.getElementById("pop_id").value;
+		   window.close();
+	  }
+  
+  </script>
+ </head>
+ <body>
+       <h1>아이디 중복체크</h1>
+    <form action="" name="form">
+      <label>아이디중복체크</label>
+      <input type="text" id="pop_id">
+      <script>
+      alert("성공");
+      
+      document.getElementById("pop_id").value = getParameterByName("id");
+      alert(id);
+      </script>
+      <input type="button" value="아이디 확인" onclick="id_check_db()"><br>
+      <p id="ch_text"></p>
+      <br>
+      <input type="button" value="메인으로 이동" onclick="main_input()">
+    
+    
+    </form>
+ 
+ </body>
+</html>

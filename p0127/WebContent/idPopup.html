@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>자식창(팝업창)</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+		  function dbCheck(){
+			  alert("동일한 아이디가 없습니다.");
+			  // 데이터베이스에서 모든 id와 비교해서 검색
+		  }
+		  
+		  function main_data(){
+			 opener.document.getElementById("id2").value = $("#pid").val();
+			 window.close();
+		  }
+		
+		</script>
+	</head>
+	<body>
+	  <form action="">
+	    <label>아이디</label>
+	    <input type="text" id="pid" name="pid">
+	    <input type="button" id="btn01" onclick="dbCheck()" value="DB에서 아이디 확인"><br>
+	    <input type="button" onclick="main_data()" value="메인으로 이동">
+	    
+	  </form>
+	  
+	
+	</body>
+</html>
