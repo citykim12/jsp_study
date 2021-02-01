@@ -1,5 +1,6 @@
 package com.javalec.ex;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -39,7 +40,18 @@ public class S_test01 extends HttpServlet {
 		writer.println("</body>");
 		writer.println("</html>");
 		writer.close();
+		
+		//4. stu1.txt 읽기
+		FileReader fr = new FileReader("c:/student/stu1.txt");
+		int read=0;
+		char[] ch = new char[100];
+		String[] str_arr=null;
+		while((read=fr.read(ch))!=-1) {
+			String data = new String(ch,0,read);
+			str_arr = data.split(",");
+		}
+		System.out.println(str_arr.length);
+		fr.close();
 	}
-	
 
 }
