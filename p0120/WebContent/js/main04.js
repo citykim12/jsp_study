@@ -53,9 +53,6 @@ function formCheck(){
 		return false;
 	}
 	
-	
-	
-	
 	/*var chk = false;
 	for(var i=0;i<document.memberForm.hobby.length;i++){
 		if(document.memberForm.hobby[i].checked){
