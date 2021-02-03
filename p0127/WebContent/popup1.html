@@ -5,12 +5,12 @@
 		<title>자식창</title>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script>
-				function getParameter(name) {
-				    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-				    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-				        results = regex.exec(location.search);
-				    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-				}
+			function getParameter(name) {
+			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			        results = regex.exec(location.search);
+			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
 			$(function(){
 				alert("jquery성공");
 				document.getElementById("pid").value = getParameter("id");
