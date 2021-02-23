@@ -2,12 +2,12 @@ package com.javalec.ex;
 
 public class MemberDto {
 	
-	MemberDto(){}
-	MemberDto(String id,String pw,String hobby){
-		this.id = id;
-		this.pw = pw;
-		this.hobby = hobby;
-	}
+//	MemberDto(){}
+//	MemberDto(String id,String pw,String hobby){
+//		this.id = id;
+//		this.pw = pw;
+//		this.hobby = hobby;
+//	}
 	
 	private String id;
 	private String pw;
