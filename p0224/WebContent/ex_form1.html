@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+		   function exFormcheck(){
+			   alert("테스트");
+			   if($("#stuNum").val()==""){
+				   alert("학번을 입력하세요.!");
+				   $("#stuNum").focus();
+				   return false;
+			   }
+			   if($("#stuName").val()==""){
+				   alert("이름을 입력하세요.!");
+				   $("#stuName").focus();
+				   return false;
+			   }
+			   document.exForm.submit();
+		   }
+		   
+		   function exFormReset(){
+			   document.exForm.reset();
+		   }
+		</script>
+	</head>
+	<body>
+	  <form action="ex0224_02.jsp" method="post" name="exForm">
+	    <label>학번</label>
+	    <input type="text" id="stuNum" name="stuNum"><br>
+	    <label>이름</label>
+	    <input type="text" id="stuName" name="stuName"><br>
+	    <label>국어점수</label>
+	    <input type="text" id="kor" name="kor"><br>
+	    <input type="button" onclick="exFormcheck()" value="전송">
+	    <input type="button" onclick="exFormReset()" value="취소">
+	  </form>
+	
+	</body>
+</html>
