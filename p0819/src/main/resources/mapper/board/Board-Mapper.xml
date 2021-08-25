@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.site.p0819.mapper.BoardMapper">
+   
+    <!-- 게시판 리스트 : 전체,검색  -->
+	<select id="selectBoardList" resultType="com.site.p0819.vo.BoardVo">
+			select * from
+			(select rownum rnum,b.* from
+			(select * from 
+			board
+			<where>
+			  <if test="category == null">
+			     
+			  </if>
+			  <if test='category == "ball"'> 
+			     btitle like '%'||#{searchWord}||'%' or bcontent like '%'||#{searchWord}||'%'
+			  </if>
+			  <if test='category == "btitle"'> 
+			     btitle like '%'||#{searchWord}||'%' 
+			  </if>
+			  <if test='category == "bcontent"'> 
+			     bcontent like '%'||#{searchWord}||'%' 
+			  </if>
+			</where>
+			order by bgroup desc,bstep asc) b)
+			where rnum between #{startrow} and #{endrow}
+	</select>
+   
+	
+	<!-- 게시글 총 수 : 전체,검색 -->
+	<select id="selectListCount" resultType="int">
+	       select count(*) from board
+	       <where>
+			  <if test="category == null">
+			  </if>
+			  <if test='category == "ball"'> 
+			     btitle like '%'||#{searchWord}||'%' or bcontent like '%'||#{searchWord}||'%'
+			  </if>
+			  <if test='category == "btitle"'>
+			     btitle like '%'||#{searchWord}||'%' 
+			  </if>
+			  <if test='category == "bcontent"'> 
+			     bcontent like '%'||#{searchWord}||'%' 
+			  </if>
+			</where>
+	</select>
+	
+	<!-- 게시글 뷰 1개 -->
+	<select id="selectBoardView" resultType="com.site.p0819.vo.BoardVo">
+	       select * from board where bid=#{bid}
+	</select>
+	
+	<!-- 게시글 이전글 -->
+	<select id="selectBoardViewPre" resultType="com.site.p0819.vo.BoardVo">
+	        select * from
+			(select rownum rnum,b.* from
+			(select * from board
+			order by bgroup desc,bstep asc) b)
+			where rnum=(select rnum from
+			(select rownum rnum,b.* from
+			(select * from board
+			order by bgroup desc,bstep asc) b)
+			where bid=#{bid})-1
+	</select>
+	
+	<!-- 게시글 다음글 -->
+	<select id="selectBoardViewNext" resultType="com.site.p0819.vo.BoardVo">
+	        select * from
+			(select rownum rnum,b.* from
+			(select * from board
+			order by bgroup desc,bstep asc) b)
+			where rnum=(select rnum from
+			(select rownum rnum,b.* from
+			(select * from board
+			order by bgroup desc,bstep asc) b)
+			where bid=#{bid})+1
+	</select>
+	
+	
+	
+	
+	<update id="updateBhitAdd">
+	       <![CDATA[
+		       update board set bhit=bhit+1
+			   where bid=#{bid}
+		   ]]>
+	</update>
+	
+	<!-- 게시글 수정 -->	
+	<update id="updateBoardModify">
+	       <![CDATA[
+		       update board set btitle=#{btitle},bcontent=#{bcontent},bupload=#{bupload}
+			   where bid=#{bid}
+		   ]]>
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoardDelete">
+	      delete board where bid=#{bid}
+	</delete>
+	
+	<!-- 게시글 추가 -->
+	<insert id="insertBoardWrite">
+	    <![CDATA[
+	      insert into board values(
+		  board_seq.nextval,#{btitle},#{bcontent},#{bname},
+		  board_seq.currval,0,0,sysdate,#{bupload},0)
+		]]>
+	</insert>
+	
+	<!-- bstep 1씩 증가 -->
+	<update id="updateBoardReplyStepAdd">
+	   <![CDATA[
+	     update board set bstep=bstep+1
+	     where bgroup=#{bgroup} and bstep>#{bstep}
+	     114=114 and bstep>0
+	      
+	   ]]>
+	</update>
+	
+	<!-- 게시판 답변달기 -->
+	<insert id="insertBoardReply">
+	    <![CDATA[
+	      insert into board values(
+		  board_seq.nextval,#{btitle},#{bcontent},#{bname},
+		  #{bgroup},#{bstep}+1,#{bindent}+1,sysdate,#{bupload},0)
+		]]>
+	</insert>
+	
+	
+
+</mapper>
